@@ -60,7 +60,7 @@ class CopyModuleSpryk implements SprykBuilderInterface
      */
     public function shouldBuild(SprykDefinitionInterface $sprykDefinition): bool
     {
-        return true;
+        return false;
     }
 
     /**

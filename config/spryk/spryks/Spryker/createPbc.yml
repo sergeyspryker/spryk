@@ -1,0 +1,16 @@
+spryk: createPbc
+description: "create PBC."
+priority: 1
+mode: core
+level: 1
+
+arguments:
+    module:
+        inherit: false
+        value: ''
+
+    organization:
+        inherit: false
+        value: ''
+    name:
+        inherit: true

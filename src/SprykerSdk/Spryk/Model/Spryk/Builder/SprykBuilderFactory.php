@@ -14,6 +14,7 @@ use SprykerSdk\Spryk\Model\Spryk\Builder\Bridge\Reflection\ReflectionHelper;
 use SprykerSdk\Spryk\Model\Spryk\Builder\Bridge\Reflection\ReflectionHelperInterface;
 use SprykerSdk\Spryk\Model\Spryk\Builder\Constant\ConstantSpryk;
 use SprykerSdk\Spryk\Model\Spryk\Builder\CopyModule\CopyModuleSpryk;
+use SprykerSdk\Spryk\Model\Spryk\Builder\CreatePbc\CreatePbcSpryk;
 use SprykerSdk\Spryk\Model\Spryk\Builder\DependencyProvider\DependencyProviderSpryk;
 use SprykerSdk\Spryk\Model\Spryk\Builder\Method\MethodSpryk;
 use SprykerSdk\Spryk\Model\Spryk\Builder\Navigation\NavigationSpryk;
@@ -76,6 +77,7 @@ class SprykBuilderFactory
             $this->createTransferSpryk(),
             $this->createResourceRouteSpryk(),
             $this->createDependencyProviderSpryk(),
+            $this->createCreatePbcSpryk(),
         ];
     }
 
@@ -171,6 +173,14 @@ class SprykBuilderFactory
             $this->createReflectionHelper(),
             $this->createMethodHelper()
         );
+    }
+
+    /**
+     * @return \SprykerSdk\Spryk\Model\Spryk\Builder\SprykBuilderInterface
+     */
+    public function createCreatePbcSpryk(): SprykBuilderInterface
+    {
+        return new CreatePbcSpryk($this->getConfig());
     }
 
     /**
