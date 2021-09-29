@@ -60,7 +60,12 @@ class CreatePbcSpryk implements SprykBuilderInterface
 
         exec('mkdir ' . $name . ' && tar -xvf ' . __DIR__ . DIRECTORY_SEPARATOR . 'data.tar.gz -C' . $pbcPath);
         exec('sed -i \'s/' . static::SHORTCODE . '/' . $name . '/g\' ' . $pbcPath . DIRECTORY_SEPARATOR . 'composer.json');
-        exec('sed -i \'s/' . static::SHORTCODE     . '/' . $this->dashesToCamelCase($name) . '/\' ' . $pbcPath . DIRECTORY_SEPARATOR . 'config' . DIRECTORY_SEPARATOR . 'manifest' . DIRECTORY_SEPARATOR . '*');
+        exec('sed -i \'s/' . static::SHORTCODE     . '/' . $this->dashesToCamelCase($name) . '/\' ' . $pbcPath .
+            DIRECTORY_SEPARATOR . 'config' .
+            DIRECTORY_SEPARATOR . 'app' .
+            DIRECTORY_SEPARATOR . 'pbc' .
+            DIRECTORY_SEPARATOR . 'manifest' . DIRECTORY_SEPARATOR . '*'
+        );
     }
 
     /**
