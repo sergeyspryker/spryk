@@ -60,9 +60,8 @@ class CreatePbcSpryk implements SprykBuilderInterface
         $pbcPath = $rootDir . $name;
         $backofficePort = (int)(getenv('SPRYKER_BE_PORT')) ?: 443;
         $zedHost = sprintf(
-            'https:\\/\\/%s%s\\/%s',
+            'https:\\/\\/%s\\/%s',
             getenv('SPRYKER_BE_HOST'),
-            $backofficePort !== 443 ? ':' . $backofficePort : '',
             'enable-pbc?name=' . $name
         );
 
