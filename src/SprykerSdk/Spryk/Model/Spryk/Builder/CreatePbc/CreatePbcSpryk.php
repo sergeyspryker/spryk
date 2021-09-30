@@ -58,27 +58,8 @@ class CreatePbcSpryk implements SprykBuilderInterface
             ->getArgument(static::ARGUMENT_CONSTANT_NAME)
             ->getValue();
         $pbcPath = $rootDir . $name;
-        $backofficePort = (int)(getenv('SPRYKER_BE_PORT')) ?: 443;
-        $zedHost = sprintf(
-            'https:\\/\\/%s\\/%s',
-            getenv('SPRYKER_BE_HOST'),
-            'enable-pbc?name=' . $name
-        );
 
         exec('mkdir ' . $name . ' && tar -xvf ' . __DIR__ . DIRECTORY_SEPARATOR . 'data.tar.gz -C' . $pbcPath);
-        exec('sed -i \'s/' . static::SHORTCODE . '/' . $name . '/g\' ' . $pbcPath . DIRECTORY_SEPARATOR . 'composer.json');
-        exec('sed -i \'s/' . static::SHORTCODE     . '/' . $this->dashesToCamelCase($name) . '/\' ' . $pbcPath .
-            DIRECTORY_SEPARATOR . 'config' .
-            DIRECTORY_SEPARATOR . 'app' .
-            DIRECTORY_SEPARATOR . 'pbc' .
-            DIRECTORY_SEPARATOR . 'manifest' . DIRECTORY_SEPARATOR . '*'
-        );
-        exec('sed -i \'s/pbcPath/' . $zedHost . '/\' ' . $pbcPath .
-            DIRECTORY_SEPARATOR . 'config' .
-            DIRECTORY_SEPARATOR . 'app' .
-            DIRECTORY_SEPARATOR . 'pbc' .
-            DIRECTORY_SEPARATOR . 'manifest' . DIRECTORY_SEPARATOR . '*'
-        );
     }
 
     /**
