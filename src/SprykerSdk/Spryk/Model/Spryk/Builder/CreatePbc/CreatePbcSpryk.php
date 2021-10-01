@@ -59,7 +59,9 @@ class CreatePbcSpryk implements SprykBuilderInterface
             ->getValue();
         $pbcPath = $rootDir . $name;
 
-        exec('mkdir ' . $name . ' && tar -xvf ' . __DIR__ . DIRECTORY_SEPARATOR . 'data.tar.gz -C' . $pbcPath);
+        //exec('mkdir ' . $name);
+        exec('git clone -b excite/sdk-demo-pbc --single-branch --depth 1 -q https://github.com/spryker/b2c-demo-shop-internal.git ' . $pbcPath);
+        exec('tar -xvf ' . __DIR__ . DIRECTORY_SEPARATOR . 'data.tar.gz -C' . $pbcPath);
     }
 
     /**
