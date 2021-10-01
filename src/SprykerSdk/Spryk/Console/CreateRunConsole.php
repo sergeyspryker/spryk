@@ -15,7 +15,7 @@ use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
 
-class SprykRunConsole extends AbstractSprykConsole
+class CreateRunConsole extends AbstractSprykConsole
 {
     protected const COMMAND_NAME = 'create';
     protected const COMMAND_DESCRIPTION = 'Runs a Spryk build process.';
