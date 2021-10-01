@@ -98,7 +98,7 @@
         "sort-packages": true
     },
     "bin": [
-        "bin/sdk",
+        "bin/spryker-sdk",
         "bin/spryk-run",
         "bin/spryk-dump",
         "bin/spryk-build"

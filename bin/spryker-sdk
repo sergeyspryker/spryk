@@ -20,12 +20,12 @@ define('SPRYKER_ROOT', getcwd());
 require_once SPRYKER_COMPOSER_INSTALL;
 
 use SprykerSdk\Spryk\Console\ConsoleBootstrap;
-use SprykerSdk\Spryk\Console\SprykRunConsole;
 
 $application = new ConsoleBootstrap();
 $application->addCommands([
-    new SprykRunConsole(),
+    new \SprykerSdk\Spryk\Console\SprykRunConsole(),
+    new \Pyz\Zed\Application\Communication\Console\PbcRegistrationConsole(),
 ]);
-$application->setDefaultCommand('spryk:run', true);
+$application->setDefaultCommand('create', false);
 
 $application->run();
