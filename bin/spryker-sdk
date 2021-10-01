@@ -23,7 +23,7 @@ use SprykerSdk\Spryk\Console\ConsoleBootstrap;
 
 $application = new ConsoleBootstrap();
 $application->addCommands([
-    new \SprykerSdk\Spryk\Console\SprykRunConsole(),
+    new \SprykerSdk\Spryk\Console\CreateRunConsole(),
     new \Pyz\Zed\Application\Communication\Console\PbcRegistrationConsole(),
 ]);
 $application->setDefaultCommand('create', false);
