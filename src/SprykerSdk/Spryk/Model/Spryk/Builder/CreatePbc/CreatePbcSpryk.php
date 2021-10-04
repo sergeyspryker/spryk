@@ -16,6 +16,7 @@ use SprykerSdk\Spryk\Style\SprykStyleInterface;
 class CreatePbcSpryk implements SprykBuilderInterface
 {
     public const ARGUMENT_CONSTANT_NAME = 'name';
+    public const ARGUMENT_CONSTANT_TYPE = 'type';
     protected const SHORTCODE = 'pbc-hello-world';
 
     /**
@@ -57,11 +58,19 @@ class CreatePbcSpryk implements SprykBuilderInterface
             ->getArgumentCollection()
             ->getArgument(static::ARGUMENT_CONSTANT_NAME)
             ->getValue();
+        $type = $sprykDefinition
+            ->getArgumentCollection()
+            ->getArgument(static::ARGUMENT_CONSTANT_TYPE)
+            ->getValue();
         $pbcPath = $rootDir . $name;
 
-        //exec('mkdir ' . $name);
-        exec('git clone -b excite/sdk-demo-pbc --single-branch --depth 1 -q https://github.com/spryker/b2c-demo-shop-internal.git ' . $pbcPath);
-        exec('tar -xvf ' . __DIR__ . DIRECTORY_SEPARATOR . 'data.tar.gz -C' . $pbcPath);
+        if ($type === 'psp') {
+            exec('git clone -b main --single-branch --depth 1 -q https://github.com/spryker-projects/sdk-demo-pbc.git ' . $pbcPath);
+        } else {
+            exec('mkdir ' . $name);
+        }
+
+        exec('tar -xvf ' . __DIR__ . DIRECTORY_SEPARATOR . $type . '.tar.gz -C' . $pbcPath);
     }
 
     /**
@@ -72,7 +81,6 @@ class CreatePbcSpryk implements SprykBuilderInterface
      */
     protected function dashesToCamelCase($string, $capitalizeFirstCharacter = false)
     {
-
         $str = str_replace(' ', '', ucwords(str_replace('-', ' ', $string)));
 
         if (!$capitalizeFirstCharacter) {

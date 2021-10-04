@@ -298,6 +298,10 @@
   mode: 2
   description: 'targetFilePath argument'
 -
+  name: type
+  mode: 2
+  description: 'type argument'
+-
   name: AddCheckoutDoSaveOrderPlugin.module
   mode: 2
   description: 'AddCheckoutDoSaveOrderPlugin module argument'
@@ -10325,3 +10329,43 @@
   name: CopyModule.mode
   mode: 2
   description: 'CopyModule mode argument'
+-
+  name: pbc.module
+  mode: 2
+  description: 'pbc module argument'
+-
+  name: pbc.organization
+  mode: 2
+  description: 'pbc organization argument'
+-
+  name: pbc.name
+  mode: 2
+  description: 'pbc name argument'
+-
+  name: pbc.type
+  mode: 2
+  description: 'pbc type argument'
+-
+  name: pbc.sprykerVendorPath
+  mode: 2
+  description: 'pbc sprykerVendorPath argument'
+-
+  name: pbc.moduleSrcDirectory
+  mode: 2
+  description: 'pbc moduleSrcDirectory argument'
+-
+  name: pbc.repository
+  mode: 2
+  description: 'pbc repository argument'
+-
+  name: pbc.moduleRoot
+  mode: 2
+  description: 'pbc moduleRoot argument'
+-
+  name: pbc.level
+  mode: 2
+  description: 'pbc level argument'
+-
+  name: pbc.mode
+  mode: 2
+  description: 'pbc mode argument'
