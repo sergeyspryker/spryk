@@ -65,9 +65,9 @@ class CreatePbcSpryk implements SprykBuilderInterface
         $pbcPath = $rootDir . $name;
 
         if ($type === 'psp') {
-            exec('git clone -b main --single-branch --depth 1 -q https://github.com/spryker-projects/sdk-demo-pbc.git ' . $pbcPath);
+            exec('git clone -b main --single-branch --depth 1 -q https://github.com/spryker-projects/sdk-psp-pbc.git ' . $pbcPath);
         } else {
-            exec('mkdir ' . $name);
+            exec('git clone -b main --single-branch --depth 1 -q https://github.com/spryker-projects/sdk-demo-pbc.git ' . $pbcPath);
         }
 
         exec('tar -xvf ' . __DIR__ . DIRECTORY_SEPARATOR . $type . '.tar.gz -C' . $pbcPath);
